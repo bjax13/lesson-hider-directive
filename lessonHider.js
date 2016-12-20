@@ -4,7 +4,8 @@ angular.module('directivePractice')
     templateUrl: 'lessonHider.html',
     restrict: 'E',
     scope: {
-      lesson: '='
+      lesson: '=',
+      dayAlert: '&'
     },
     controller: function ($scope, lessonService) {
       $scope.getSchedule = lessonService.getSchedule();
@@ -15,6 +16,8 @@ angular.module('directivePractice')
 
         scope.schedule.forEach(function( scheduleDay ) {
           if (scheduleDay.lesson === scope.lesson) {
+            scope.lessonDay = scheduleDay.weekday;
+            
             element.css('text-decoration', 'line-through');
             return;
           }
