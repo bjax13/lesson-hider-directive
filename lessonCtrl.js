@@ -4,6 +4,12 @@ angular.module('directivePractice')
     $scope.lessons = ['Services', 'Routing', 'Directives', 'Review', 'Firebase', 'No server project', 'Node', 'Express', 'Mongo'];
 
     $scope.announceDay = function (lesson , day) {
-      alert(lesson + ' is active on ' + day + '.')
+      if (!day) {
+        alert(lesson + ' is not currently active.')
+      }else {
+        alert(lesson + ' is active on ' + day + '.')
+      }
+
     }
+
   })
